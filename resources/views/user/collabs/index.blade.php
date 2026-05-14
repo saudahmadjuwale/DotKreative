@@ -14,14 +14,28 @@
         <i id="menuBtn" class="fa-solid fa-bars"></i>
         <div id="mobNav">
             <i id="cancel" class="fa-solid fa-xmark"></i>
-            <a href="{{route('home')}}">Home</a><a href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
+            <a href="{{route('home')}}">Home</a><a href="{{route('galleries')}}">Gallery</a><a href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
         </div>
         <nav>
-            <a  href="{{route('home')}}">Home</a><a class="active" href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
+            <a  href="{{route('home')}}">Home</a><a  href="{{route('galleries')}}">Gallery</a><a class="active" href="{{route('collabs.index')}}">Collaborations</a><a id="cus" href="#contactUs">Contact Us</a>
         </nav>
+        
     </header>
   <section id="collabList">
-    <h2>Collaborations</h2>
+    <div class="collab-heading">
+
+        <span>TRUSTED PARTNERSHIPS</span>
+
+        <h2>
+            Brands We've <br> Collaborated With
+        </h2>
+
+        <p>
+            From luxury fashion campaigns to cinematic product launches,
+            we create visuals that connect brands with human emotions.
+        </p>
+
+    </div>
     <div class="grid">
       @foreach($collabs as $c)
         <a class="card" href="{{ route('collabs.show', $c->slug) }}">
@@ -29,7 +43,6 @@
             @if($c->brand_logo_path)
               <img src="{{ Storage::disk('public')->url($c->brand_logo_path) }}" alt="{{ $c->brand_name }} logo">
             @endif
-            <strong>{{ $c->brand_name }}</strong>
           </div>
           @if($c->mini_summary)
             <div class="sum">{{ $c->mini_summary }}</div>
@@ -47,12 +60,13 @@
   </section>
   <section id="contactUs">
         <h2>Al doesn't feel emotions. We capture them<br> live, raw, and real</h2>
-        <form action="" method="">
+        <form action="{{ route('contact.submit') }}" method="POST">
+          @csrf
             <h3>Contact Us</h3>
             <label for="">Enter Your details below we'll response soon.</label>
-            <input type="text" placeholder="Enter your Name" required>
-            <input type="text" placeholder="Enter your Email (optional)">
-            <input type="text" placeholder="Enter your Number" required>
+            <input name="name" type="text" placeholder="Enter your Name" required>
+            <input name="email" type="text" placeholder="Enter your Email (optional)">
+            <input name="number" type="text" placeholder="Enter your Number" required>
             <button>Submit</button>
         </form>
     </section>

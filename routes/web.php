@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\PublicSite\CollabController as PublicCollab;
 use App\Http\Controllers\PublicSite\GalleryPageController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::get('/', [PublicCollab::class, 'home'])->name('home');
 Route::get('/collabs', [PublicCollab::class, 'index'])->name('collabs.index');
 Route::get('/collabs/{slug}', [PublicCollab::class, 'show'])->name('collabs.show');
 Route::get('/galleries', [GalleryPageController::class, 'index'])->name('galleries');
-
+Route::post('/contact-submit',
+    [ContactController::class, 'submit']
+)->name('contact.submit');
 
 
 

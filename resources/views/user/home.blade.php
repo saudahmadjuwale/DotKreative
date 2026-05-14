@@ -15,11 +15,12 @@
         <i id="menuBtn" class="fa-solid fa-bars"></i>
         <div id="mobNav">
             <i id="cancel" class="fa-solid fa-xmark"></i>
-            <a href="{{route('home')}}">Home</a><a href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
+            <a href="{{route('home')}}">Home</a><a href="{{route('galleries')}}">Gallery</a><a href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
         </div>
         <nav>
-            <a class="active" href="{{route('home')}}">Home</a><a href="{{route('collabs.index')}}">Collaborations</a><a href="#contactUs">Contact Us</a>
+            <a class="active" href="{{route('home')}}">Home</a><a href="{{route('galleries')}}">Gallery</a><a href="{{route('collabs.index')}}">Collaborations</a><a id="cus" href="#contactUs">Contact Us</a>
         </nav>
+        
     </header>
     <section id="hero">
         <h2>AI can’t shoot your<br> moments, We can!</h2>
@@ -58,7 +59,7 @@
                         <strong>Abhishek Bhalerao</strong>
                     </span>
                     <span>
-                        <img src="" alt="">
+                        <img src="{{ asset('/image/pfp/mihir.jpg') }}" alt="">
                         <strong>Mihir </strong>
                     </span>
                     
@@ -89,9 +90,9 @@
         <form action="" method="">
             <h3>Contact Us</h3>
             <label for="">Enter Your details below we'll response soon.</label>
-            <input type="text" placeholder="Enter your Name" required>
-            <input type="text" placeholder="Enter your Email (optional)">
-            <input type="text" placeholder="Enter your Number" required>
+            <input name="name" type="text" placeholder="Enter your Name" required>
+            <input name="email" type="text" placeholder="Enter your Email (optional)">
+            <input name="number" type="text" placeholder="Enter your Number" required>
             <button>Submit</button>
         </form>
     </section>
